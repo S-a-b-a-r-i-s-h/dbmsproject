@@ -3,17 +3,15 @@ include "config.php";
 
 if (isset($_POST["submit"])) {
    $name = $_POST['name'];
-   $designation = $_POST['designation'];
-   $age = $_POST['age'];
-   $salary = $_POST['salary'];
-   $phone = $_POST['phone'];
+   $date = $_POST['date'];
+   $price = $_POST['price'];
    
-   $sql = "INSERT INTO `employee`(`name`, `designation`, `age`, `salary`,`phone`) VALUES ('$name','$designation','$age','$salary','$phone')";
+   $sql = "INSERT INTO `customers`(`name`, `date`, `price`) VALUES ('$name','$date','$price')";
 
    $result = mysqli_query($conn, $sql);
 
    if ($result) {
-      header("Location: index.php?msg=New record created successfully");
+      header("Location: customers.php?msg=New record created successfully");
    } else {
       echo "Failed: " . mysqli_error($conn);
    }
@@ -35,18 +33,18 @@ if (isset($_POST["submit"])) {
    <!-- Font Awesome -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-   <title>Add new user</title>
+   <title>Add new cusomer</title>
 </head>
 
 <body>
    <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #00ff5573;">
-      Add New User
+      Add New Customer
    </nav>
 
    <div class="container">
       <div class="text-center mb-4">
          <!-- <h3>Add New User</h3> -->
-         <p class="text-muted">Complete the form below to add a new user</p>
+         <p class="text-muted">Complete the form below to add a new customer</p>
       </div>
 
       <div class="container d-flex justify-content-center">
@@ -58,30 +56,20 @@ if (isset($_POST["submit"])) {
                </div>
 
                <div class="col">
-                  <label class="form-label">Designation:</label>
-                  <input type="text" class="form-control" name="designation" placeholder="Manager">
+                  <label class="form-label">date:</label>
+                  <input type="date" class="form-control" name="date">
                </div>
                <div class="col">
-                  <label class="form-label">Salary:</label>
-                  <input type="text" class="form-control" name="salary">
+                  <label class="form-label">Price:</label>
+                  <input type="text" class="form-control" name="price">
                </div>
-<!--  value="<?php echo $row['salary'] ?>" -->
-<!--  value="<?php echo $row['phone'] ?>" -->
-            </div>
 
-            <div class="mb-3">
-               <label class="form-label">Age:</label>
-               <input type="number" class="form-control" name="age">
-            </div>
-            <div class="mt-3 mb-3">
-               <label class="form-label">Phone:</label>
-               <input type="text" class="form-control" name="phone">
             </div>
 
             <div>
                <!-- <a href="employee.php" class="btn">Save</a> -->
                <button type="submit" class="btn btn-success" name="submit">Save</button>
-               <a href="employee.php" class="btn btn-danger">Cancel</a>
+               <a href="customer.php" class="btn btn-danger">Cancel</a>
             </div>
          </form>
       </div>

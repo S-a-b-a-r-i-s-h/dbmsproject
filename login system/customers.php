@@ -16,12 +16,12 @@ include "config.php";
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <title>Cmployee</title>
+  <title>Customers</title>
 </head>
 
 <body>
   <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #00ff5573;">
-    Employeeee Application
+    Customer Application
   </nav>
 
   <div class="container">
@@ -34,36 +34,26 @@ include "config.php";
     </div>';
     }
     ?>
-    <a href="add-new.php" class="btn btn-dark mb-3">Add New</a>
+    <a href="add-new-customer.php" class="btn btn-dark mb-3">Add New</a>
 
     <table class="table table-hover text-center">
       <thead class="table-dark">
         <tr>
           <th scope="col">NAME</th>
-          <th scope="col">DESIGNATION</th>
-          <th scope="col">AGE</th>
-          <th scope="col">SALARY</th>
-          <th scope="col">PHONE</th>
-          <th scope="col">Action</th>
+          <th scope="col">DATE</th>
+          <th scope="col">PRICE</th>
         </tr>
       </thead>
       <tbody>
         <?php
-        $sql = "SELECT * FROM `employee`";
+        $sql = "SELECT * FROM `customers`";
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
         ?>
           <tr>
             <td><?php echo $row["name"] ?></td>
-            <td><?php echo $row["designation"] ?></td>
-            <td><?php echo $row["age"] ?></td>
-            <td><?php echo $row["salary"] ?></td>
-            <td><?php echo $row["phone"] ?></td>
-            
-            <td>
-              <a href="edit.php?phone=<?php echo $row["phone"] ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a>
-              <a href="delete.php?phone=<?php echo $row["phone"] ?>" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a>
-            </td>
+            <td><?php echo $row["date"] ?></td>
+            <td><?php echo $row["price"] ?></td>
           </tr>
         <?php
         }

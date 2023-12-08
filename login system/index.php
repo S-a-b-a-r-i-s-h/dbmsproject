@@ -10,10 +10,11 @@
 <body>
     <div class="container">
         <div class="content">
-            <a href="employee.php" class="btn"> employee </a>
-            <a href="login_form.php" class="btn"> login </a>
-            <a href="bookroom1.php" class="btn"> bookroom </a>
-            <a href="booktable1.php" class="btn"> booktable </a>
+            <a href="employee.php" class="btn"> Employee </a>
+            <a href="login_form.php" class="btn"> Login/Register </a>
+            <a href="bookroom1.php" class="btn"> Bookroom </a>
+            <a href="booktable1.php" class="btn"> Booktable </a>
+            <a href="customers.php" class="btn"> Customers </a>
         </div>
     </div>      
 </body>
